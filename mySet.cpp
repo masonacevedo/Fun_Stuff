@@ -2,6 +2,35 @@
 #include <cstring>
 #include <sstream>
 #include <cmath>
+#include <random>
+
+std::string genRandomString(){
+    // randomly generates a string w/
+    // between 1 and 10 characters.
+
+    // rand() % 11 returns a number in the range [0,9]
+    // so we add 1 to get a number in the range [1,10]
+    
+
+    std::string alphabet[26] = {"a","b","c","d","e","f","g","h",
+    "i","j","k","l","m","n","o","p","q","r","s","t","u","v","w",
+    "x","y","z",};
+
+    std::random_device rd;
+    int n = (rd() % 9)+1;
+
+    // build the string one character at a time
+    std::string s;
+    for (int index = 0; index < n; index++){
+        s += alphabet[(rd()%26)];
+    }
+
+    return s;
+}
+
+// void evaluateHashUniformity(){
+
+// }
 
 int myHash(std::string key, int bucketSize){
     // Given a key, and a bucket size, we compute a basic hash function.
@@ -24,7 +53,7 @@ int myHash(std::string key, int bucketSize){
 
     int hash = 0;
     for (int index = 0; index < key.length(); index++){
-        std::cout << "hash:" << hash << "\n";
+        // std::cout << "hash:" << hash << "\n";
         hash = ((R * hash) + int(pow(int(bytes[index]),2))) % bucketSize;
     }
     return hash;
@@ -32,12 +61,21 @@ int myHash(std::string key, int bucketSize){
 
 int main(){
 
-    std::string s;
-    std::cout << "Please input a string to be hashed:";
-    std::cin >> s;
-    int ans = myHash(s, 8191);
+    // std::random_device rd;
+    // std::cout << rd() << std::endl;
+ 
+ 
+    std::string test = genRandomString();
+    std::cout << test << std::endl;
+ 
+ 
+ 
+    // std::string s;
+    // std::cout << "Please input a string to be hashed:";
+    // std::cin >> s;
+    // int ans = myHash(s, 8191);
 
-    std::cout << "Your string hashed to:" << ans << std::endl;
+    // std::cout << "Your string hashed to:" << ans << std::endl;
 
     
     return 0;
