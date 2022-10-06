@@ -28,9 +28,6 @@ std::string genRandomString(){
     return s;
 }
 
-// void evaluateHashUniformity(){
-
-// }
 
 int myHash(std::string key, int bucketSize){
     // Given a key, and a bucket size, we compute a basic hash function.
