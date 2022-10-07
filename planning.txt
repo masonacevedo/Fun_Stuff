@@ -2,6 +2,34 @@
     Compute Hash of Key
 
     if elements[Hash] is the empty string:
-        set elements[Hash] = Key
-    else:
+        return false
+    else if elements[Hash] is equal to key:
         return true
+    else (in this case, elements[hash] is a non-empty string and is not the key, so we have to do open addressing)
+        while (not looking at empty string):
+            check if string matches the key
+                if it does, return true
+                else, advance to next string
+                advance to next string
+        
+        if we're here, then we've seen an empty string and never found a match, so
+        we should return false
+
+
+insert pseudo code: 
+
+insert:
+    if key already exists in set, do nothing
+    else
+
+    compute hash
+    if vector item at hash index is empty string, store it there, and we're done!
+    if non-empty, we need to do open addressing
+        while (current string is nonempty):
+            index++
+        now that we've reached an empty spot in the vector, 
+        insert the key there
+    
+    if loadFactor > (1/2)
+        resize table:
+            double bucket size, then choose the first prime after it 

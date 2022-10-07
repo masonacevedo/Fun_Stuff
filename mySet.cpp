@@ -4,6 +4,7 @@
 #include <cmath>
 #include <random>
 #include "myset.hpp"
+#include "primes.cpp"
 
 MySet::MySet() {
     // i think the "this" keyword could be used here,
@@ -11,12 +12,60 @@ MySet::MySet() {
     size_ = 0;
     elements = {};
     bucket_size_ = 13;
+    elements.resize(bucket_size_);
+    max_load = 0.6;
 }
 
 void MySet::insert(std::string key){
+    // if element already exists, do nothing
+    if (exists(key)){
+        return;
+    }
+
+    // if element is not in hash table, insert it!
+    int hash = myHash(key, bucket_size_);
+    if (elements[hash] == ""){
+        elements[hash] = key;
+    }
+    else{
+        int currentIndex = hash;
+        while (elements[currentIndex] != ""){
+            currentIndex++;
+        }
+        elements[currentIndex] = key;
+    }
+    
+    // increment size
+    size_++;
+
+    // if load factor has exceeded max load, resize!
+    if (float(size_)/float(bucket_size_) > max_load){
+        // rather than just doubling the size of the vector,
+        // we double it, then look for the next prime shortly after that. 
+        bucket_size_ *= 2;
+        bucket_size_ = nextPrime(bucket_size_);
+        elements.resize(bucket_size_);
+    }
 }
 
 bool MySet::exists(std::string key) const{
+    int hash = myHash(key, bucket_size_);
+    if (elements[hash] == "") {
+        return false;
+    }
+    else if (elements[hash] == key){
+        return true;
+    }
+    else {
+        int currentIndex = hash;
+        while (elements[currentIndex] != ""){
+            if (elements[currentIndex] == key){
+                return true;
+            }
+            currentIndex++;
+        }
+        return false;
+    }
 }
 
 size_t MySet::size() const{
@@ -75,6 +124,7 @@ int myHash(std::string key, int bucketSize){
     }
     return hash;
 }
+
 
 int main(){
 

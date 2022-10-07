@@ -37,6 +37,7 @@ class MySet {
         size_t size_;
         std::vector <std::string> elements;
         size_t bucket_size_;
+        float max_load;
         class Iterator {
             using value_type = std::string;
             using reference = value_type &;

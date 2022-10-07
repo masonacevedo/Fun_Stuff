@@ -2,11 +2,12 @@
 #include <cmath>
 #include <vector>
 
-bool divisible(int a, int b){
+
+bool divisible(size_t &a, size_t &b){
     return floor(double(a)/double(b)) == (double(a)/double(b));
 }
 
-bool generatePrimesHelper (int n, std::vector <int> primes){
+bool generatePrimesHelper (size_t &n, std::vector <size_t> primes){
     if (n == 2){
         return true;
     }
@@ -21,10 +22,10 @@ bool generatePrimesHelper (int n, std::vector <int> primes){
     return true;
 }
 
-std::vector <int> generatePrimes (int n){
-    std::vector <int> primes;
+std::vector <size_t> generatePrimes (size_t &n){
+    std::vector <size_t> primes;
 
-    for (int index = 2; index <= n; index++){
+    for (size_t index = 2; index <= n; index++){
         if (generatePrimesHelper(index, primes)){
             primes.push_back(index);
         }
@@ -32,8 +33,8 @@ std::vector <int> generatePrimes (int n){
     return primes;
 }
 
-bool isPrime(int n){
-    for (int index = 2; index <= sqrt(n); index++){
+bool isPrime(size_t &n){
+    for (size_t index = 2; index <= sqrt(n); index++){
         if (divisible(n, index)){
             return false;
         }
@@ -41,25 +42,38 @@ bool isPrime(int n){
     return true;
 }
 
+size_t nextPrime(size_t &n){
+    size_t m = n;
+    while (true){
+        if (isPrime(m)){
+            return m;
+        }
+        m++;
+    }
+}
+
 
 int main(){
+    
 
-    int n;
-    std::cout << "Input a number and I give you the primes less than or equal to that number: ";
+    size_t n;
+    std::cout << "Input a composite number and I will tell you the first prime after it: ";
     std::cin >> n;
     std::cout << "\n";
+    size_t ans = nextPrime(n);
+    std::cout << ans << std::endl;
 
-    std::vector primes = generatePrimes(n);
-    std::cout << "primes: [";
-    for (int i = 0; i < primes.size(); i++){
-        if (i == (primes.size()-1)){
-            std::cout << primes[i];
-        }
-        else{
-            std::cout << primes[i] << ", ";
-        }
+    // std::vector primes = generatePrimes(n);
+    // std::cout << "primes: [";
+    // for (int i = 0; i < primes.size(); i++){
+    //     if (i == (primes.size()-1)){
+    //         std::cout << primes[i];
+    //     }
+    //     else{
+    //         std::cout << primes[i] << ", ";
+    //     }
         
-    }
-    std::cout << "]" << std::endl;
+    // }
+    // std::cout << "]" << std::endl;
 
 }
