@@ -7,6 +7,7 @@
 #define MYSET_HPP_INCLUDED
 
 #include <string>
+#include <vector> 
 
 class MySet {
     private:
@@ -34,7 +35,24 @@ class MySet {
 
     private: 
         size_t size;
-        
+        std::vector <std::string> elements;
+        class Iterator {
+            using value_type = std::string;
+            using reference = value_type &;
+            using pointer = value_type *;
+            using iterator_category = std::forward_iterator_tag;
+
+            Iterator() = default;
+            Iterator(const Iterator &other) = default;
+            Iterator &operator=(const Iterator&other) = default;
+            ~Iterator() = default;
+
+            reference operator* () const;
+            Iterator& operator++();
+            bool operator==(const Iterator& rhs) const;
+            bool operator!=(const Iterator& rhs) const;
+            std::string* operator->() const;
+        };
 
 };
 
