@@ -3,6 +3,26 @@
 #include <sstream>
 #include <cmath>
 #include <random>
+#include "myset.hpp"
+
+MySet::MySet() {
+    // i think the "this" keyword could be used here,
+    // but it's not strictly necessary! 
+    size_ = 0;
+    elements = {};
+    bucket_size_ = 13;
+}
+
+void MySet::insert(std::string key){
+}
+
+bool MySet::exists(std::string key) const{
+}
+
+size_t MySet::size() const{
+    return size_;
+}
+
 
 std::string genRandomString(){
     // randomly generates a string w/

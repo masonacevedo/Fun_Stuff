@@ -1,0 +1,7 @@
+"Exists" pseudo code: 
+    Compute Hash of Key
+
+    if elements[Hash] is the empty string:
+        set elements[Hash] = Key
+    else:
+        return true

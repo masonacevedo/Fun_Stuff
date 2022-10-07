@@ -17,7 +17,7 @@ class MySet {
         ~MySet();
         void insert(std::string key);
         bool exists(std::string key) const;
-        int size() const;
+        size_t size() const;
 
         // const keyword after function declaration
         // denotes that calling the function 
@@ -34,8 +34,9 @@ class MySet {
         std::ostream& showStatistics(std::ostream& stream) const;
 
     private: 
-        size_t size;
+        size_t size_;
         std::vector <std::string> elements;
+        size_t bucket_size_;
         class Iterator {
             using value_type = std::string;
             using reference = value_type &;
