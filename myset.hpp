@@ -55,6 +55,7 @@ class MySet {
             bool operator!=(const Iterator& rhs) const;
             std::string* operator->() const;
         };
+        int myHash (std::string key, int bucketSize) const;
 
 };
 

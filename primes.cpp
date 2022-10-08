@@ -53,27 +53,27 @@ size_t nextPrime(size_t &n){
 }
 
 
-int main(){
+// int main(){
     
 
-    size_t n;
-    std::cout << "Input a composite number and I will tell you the first prime after it: ";
-    std::cin >> n;
-    std::cout << "\n";
-    size_t ans = nextPrime(n);
-    std::cout << ans << std::endl;
+//     size_t n;
+//     std::cout << "Input a composite number and I will tell you the first prime after it: ";
+//     std::cin >> n;
+//     std::cout << "\n";
+//     size_t ans = nextPrime(n);
+//     std::cout << ans << std::endl;
 
-    // std::vector primes = generatePrimes(n);
-    // std::cout << "primes: [";
-    // for (int i = 0; i < primes.size(); i++){
-    //     if (i == (primes.size()-1)){
-    //         std::cout << primes[i];
-    //     }
-    //     else{
-    //         std::cout << primes[i] << ", ";
-    //     }
+//     // std::vector primes = generatePrimes(n);
+//     // std::cout << "primes: [";
+//     // for (int i = 0; i < primes.size(); i++){
+//     //     if (i == (primes.size()-1)){
+//     //         std::cout << primes[i];
+//     //     }
+//     //     else{
+//     //         std::cout << primes[i] << ", ";
+//     //     }
         
-    // }
-    // std::cout << "]" << std::endl;
+//     // }
+//     // std::cout << "]" << std::endl;
 
-}
+// }
