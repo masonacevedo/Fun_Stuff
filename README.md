@@ -25,3 +25,6 @@ It supports the following operations:
     * Determining whether an integer is prime.
     * Generating a list of all the primes up until some number *n*. 
     * Given a prime, determining the first prime after it.
+
+Note that this project is *also* useful for the above hash set 
+project, because it's good to keep the array size in a hash map a prime number! 
