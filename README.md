@@ -10,13 +10,13 @@ So far, we have the following:
     * add an element: O(1)
     * check if an element is in the set: O(1)
     * remove an element from the set: O(1)
-This set uses open addressing, and maintains a vector of elements that it resizes to 
-an appropriate prime number when necessary. 
-Furthermore, I implemented the hash function for this data structure! 
-The hash function isn't quite perfect, but it works pretty well. 
+    This set uses open addressing, and maintains a vector of elements that it resizes to 
+    an appropriate prime number when necessary. 
+    Furthermore, I implemented the hash function for this data structure! 
+    The hash function isn't quite perfect, but it works pretty well. 
 
-The data structure stores a set of keys, where each key is a string. 
-It supports the following operations:
+    The data structure stores a set of keys, where each key is a string. 
+    It supports the following operations:
 
 
 
@@ -26,5 +26,5 @@ It supports the following operations:
     * Generating a list of all the primes up until some number *n*. 
     * Given a prime, determining the first prime after it.
 
-Note that this project is *also* useful for the above hash set 
-project, because it's good to keep the array size in a hash map a prime number! 
+    Note that this project is *also* useful for the above hash set 
+    project, because it's good to keep the array size in a hash map a prime number! 
