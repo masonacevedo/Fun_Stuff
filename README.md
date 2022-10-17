@@ -10,15 +10,11 @@ So far, we have the following:
     * add an element: O(1)
     * check if an element is in the set: O(1)
     * remove an element from the set: O(1)
-    This set uses open addressing, and maintains a vector of elements that it resizes to 
+    This hash set uses open addressing, and maintains a vector of elements that it resizes to 
     an appropriate prime number when necessary. 
     Furthermore, I implemented the hash function for this data structure! 
     The hash function isn't quite perfect, but it works pretty well. 
-
-    The data structure stores a set of keys, where each key is a string. 
-    It supports the following operations:
-
-
+    The elements stored in the hashset are strings. 
 
 
 2. A file primes.cpp with functions for:
